@@ -4,7 +4,7 @@ module Bucketchain.Conditional
 
 import Prelude
 
-import Bucketchain.Http (Http, requestHeaders, requestMethod, responseHeaders, setStatusCode, statusCode)
+import Bucketchain.Http (Http, requestHeaders, requestMethod, responseHeader, setStatusCode, statusCode)
 import Bucketchain.Middleware (Middleware)
 import Control.Monad.Reader (ask)
 import Data.JSDate (getTime, parse)
@@ -35,7 +35,7 @@ fresh http =
     _, _, _, _, _ -> pure false
   where
     ifModifiedSince = lookup "if-modified-since" $ requestHeaders http
-    lastModified = lookup "last-modified" $ responseHeaders http
+    lastModified = responseHeader http "last-modified"
 
 isHeadOrGet :: Http -> Boolean
 isHeadOrGet http =
