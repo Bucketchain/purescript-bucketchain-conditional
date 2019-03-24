@@ -6,8 +6,16 @@ A conditional GET middleware of [Bucketchain](https://github.com/Bucketchain/pur
 
 ## Installation
 
+### Bower
+
 ```
-bower install purescript-bucketchain-conditional
+$ bower install purescript-bucketchain-conditional
+```
+
+### Spago
+
+```
+$ spago install bucketchain-conditional
 ```
 
 ## Documentation
